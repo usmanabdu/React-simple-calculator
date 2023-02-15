@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  background-color: antiquewhite;
+  background-color: rgb(226, 223, 220);
   display: flex;
   flex-direction: row;
   /* align-items: center; */
@@ -28,7 +28,8 @@ code {
 }
 
 .wrapper {
-  background-color: rgba(231, 182, 117, 0.981);
+  background-color: rgba(255, 225, 185, 0.981);
+  color: black;
   padding: 60px 15px 15px 5px;
   border-radius: 15px;
   width: 400px;

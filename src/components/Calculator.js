@@ -73,7 +73,7 @@ class Calculator extends React.Component {
                 <div className="container">
                     <div className="wrapper">
                         <input type="text" value={this.state.no1} onChange={this.handleNo1Change} placeholder="0.00" /><br />
-                        <label>sign:</label>
+                        <label>operator:</label>
                         <input type="text" value={this.state.sign} onChange={this.handleSignChange}/><br />
                         <input type="text" value={this.state.no2} onChange={this.handleNo2Change} placeholder="0.00"/><br />
                         <br />
