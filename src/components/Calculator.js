@@ -9,34 +9,61 @@ class Calculator extends React.Component {
             sign: "",
             result: ""
         }
-        
+        this.handleNo1Change = this.handleNo1Change.bind(this)
+        this.handleNo2Change = this.handleNo2Change.bind(this)
+        this.handleResultChange=this.handleResultChange.bind(this)
+        this.handleSignChange=this.handleSignChange.bind(this)
     }
 
     handleNo1Change(event) {
-        event.preventdefault();
-        this.setState = ({
+        event.preventDefault();
+        this.setState({
             no1: Number(event.target.value)
         })
     }
 
     handleNo2Change(event) {
-        event.preventdefault();
-        this.setState = ({
+        event.preventDefault();
+        this.setState({
             no2: Number(event.target.value)
         })
     }
 
     handleSignChange(event) {
-        event.preventdefault();
-        this.setState = ({
-            sign: Number(event.target.value)
+        event.preventDefault();
+        this.setState({
+            sign: event.target.value
         })
     }
 
     handleResultChange(event) {
-        event.preventdefault();
-        this.setState = ({
+        event.preventDefault();
+        let result
+        const {no1,no2,sign} = this.state
+            if(sign === "+") {
+                result = no1 + no2;
+            }
             
+            else if(sign === "-") {
+                result = no1 - no2
+            }
+        
+            else if(sign === "*") {
+                result = no1 * no2
+            }
+        
+            else if(sign === "/") {
+                result = no1 / no2
+            }
+        
+            else {
+                result = "Invalid operator";
+            }
+            
+            
+        
+        this.setState  ({
+            result:result
         })
     }
 
@@ -45,14 +72,14 @@ class Calculator extends React.Component {
             <>
                 <div className="container">
                     <div className="wrapper">
-                        <input type="number" value={this.state.no1} placeholder="0.00" /><br />
+                        <input type="text" value={this.state.no1} onChange={this.handleNo1Change} placeholder="0.00" /><br />
                         <label>sign:</label>
-                        <input type="text" value={this.state.sign}/><br />
-                        <input type="number" value={this.state.no2} placeholder="0.00"/><br />
+                        <input type="text" value={this.state.sign} onChange={this.handleSignChange}/><br />
+                        <input type="text" value={this.state.no2} onChange={this.handleNo2Change} placeholder="0.00"/><br />
                         <br />
-                        <span>= {this.state.result}</span>
+                        <span>{this.state.result}</span>
 
-                        <button onClick={this}>=</button>
+                        <button onClick={this.handleResultChange}>=</button>
                     </div>
                 </div>
             </>
